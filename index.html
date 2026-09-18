@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DealUp — For Unlimited Broadcast</title>
+
+  <!-- Social Open Graph / WhatsApp / iMessage / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://iamgauravkanani.github.io/app_link_dynamic/">
+  <meta property="og:title" content="DealUp — For Unlimited Broadcast">
+  <meta property="og:description" content="Join me on DealUp for Unlimited Broadcast. Dealer-to-Dealer Mobile Trading.">
+  <meta property="og:site_name" content="DealUp">
+  <meta name="theme-color" content="#00A884">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DealUp — For Unlimited Broadcast">
+  <meta name="twitter:description" content="Join me on DealUp for Unlimited Broadcast. Dealer-to-Dealer Mobile Trading.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    // Configurable URLs
+    const CONFIG = {
+      androidUrl: "https://play.google.com/store/apps/details?id=com.dealup.zeronine.ai",
+      iosUrl: "https://apps.apple.com/in/app/dealup/id6800830848",
+      fallbackUrl: "https://play.google.com/store/apps/details?id=com.dealup.zeronine.ai"
+    };
+
+    // Device Detection & Immediate Redirect
+    (function () {
+      const ua = navigator.userAgent || navigator.vendor || window.opera || '';
+      const isAndroid = /android/i.test(ua);
+      const isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+      if (isAndroid) {
+        window.location.replace(CONFIG.androidUrl);
+      } else if (isIOS) {
+        window.location.replace(CONFIG.iosUrl);
+      }
+    })();
+  </script>
+
+  <style>
+    :root {
+      --primary: #00A884;
+      --primary-hover: #02906f;
+      --primary-glow: rgba(0, 168, 132, 0.25);
+      --bg-dark: #0B141A;
+      --card-bg: rgba(17, 27, 33, 0.85);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text-main: #E9EDEF;
+      --text-muted: #8696A0;
+      --button-bg: #1F2C34;
+      --button-border: rgba(255, 255, 255, 0.12);
+      --button-hover: #2A3942;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Subtle background radiant glow */
+    .bg-glow {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--primary-glow) 0%, rgba(11, 20, 26, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 460px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--card-border);
+      border-radius: 28px;
+      padding: 40px 32px;
+      text-align: center;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45),
+                  0 0 1px 1px rgba(255, 255, 255, 0.05);
+      animation: cardAppear 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes cardAppear {
+      from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Logo & Icon */
+    .logo-container {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 24px;
+      background: linear-gradient(135deg, #00A884 0%, #007A5E 100%);
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 28px rgba(0, 168, 132, 0.35);
+      position: relative;
+    }
+
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      color: #FFFFFF;
+    }
+
+    .badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 168, 132, 0.12);
+      border: 1px solid rgba(0, 168, 132, 0.3);
+      color: #25D366;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      background-color: #25D366;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #25D366;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+      background: linear-gradient(180deg, #FFFFFF 30%, #CFD8DC 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p.subtitle {
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+
+    /* Action Buttons */
+    .buttons-group {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .store-button {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 16px;
+      background: var(--button-bg);
+      border: 1px solid var(--button-border);
+      color: var(--text-main);
+      padding: 14px 22px;
+      border-radius: 16px;
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .store-button:hover {
+      background: var(--button-hover);
+      border-color: rgba(0, 168, 132, 0.5);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .store-button.primary {
+      background: linear-gradient(135deg, #00A884 0%, #008f6f 100%);
+      border: none;
+      box-shadow: 0 6px 20px rgba(0, 168, 132, 0.25);
+    }
+
+    .store-button.primary:hover {
+      background: linear-gradient(135deg, #02b68f 0%, #009d7a 100%);
+      box-shadow: 0 10px 28px rgba(0, 168, 132, 0.4);
+    }
+
+    .btn-icon {
+      width: 30px;
+      height: 30px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-icon svg {
+      width: 100%;
+      height: 100%;
+      fill: currentColor;
+    }
+
+    .btn-text {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .btn-text .subtext {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      font-weight: 600;
+      opacity: 0.85;
+    }
+
+    .btn-text .store-name {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+    }
+
+    .arrow-icon {
+      margin-left: auto;
+      width: 20px;
+      height: 20px;
+      opacity: 0.5;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .store-button:hover .arrow-icon {
+      opacity: 1;
+      transform: translateX(4px);
+    }
+
+    /* Footer Note */
+    .footer {
+      margin-top: 28px;
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .redirect-status {
+      display: none;
+      margin-top: 18px;
+      font-size: 13px;
+      color: #25D366;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .spinner {
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(37, 211, 102, 0.25);
+      border-top-color: #25D366;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-glow"></div>
+
+  <div class="container">
+    <div class="card">
+      <!-- App Icon / Brand -->
+      <div class="logo-container">
+        <!-- Broadcast / Deal Up Signal Icon -->
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/>
+          <path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/>
+          <circle cx="12" cy="12" r="2"/>
+          <path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/>
+          <path d="M19.1 4.9C23 8.8 23 15.2 19.1 19.1"/>
+        </svg>
+      </div>
+
+      <!-- Badge -->
+      <div class="badge-tag">
+        <span class="badge-dot"></span>
+        Dealer-to-Dealer Trading
+      </div>
+
+      <!-- Heading -->
+      <h1>DealUp</h1>
+      <p class="subtitle">Join me on DealUp for Unlimited Broadcast. Dealer-to-Dealer Mobile Trading.</p>
+
+      <!-- Store Download Buttons -->
+      <div class="buttons-group">
+        <!-- Google Play -->
+        <a id="btn-playstore" class="store-button primary" href="https://play.google.com/store/apps/details?id=com.dealup.zeronine.ai">
+          <div class="btn-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M3.609 1.814L13.792 12 3.61 22.186c-.407-.367-.61-.926-.61-1.686V3.5c0-.76.203-1.319.61-1.686zM15.207 13.414l2.57 2.57-11.45 6.44 8.88-9.01zM15.207 10.586L6.327 1.576l11.45 6.44-2.57 2.57zm1.414 1.414l3.77-2.12c1.07-.6 1.07-1.58 0-2.18l-3.77-2.12-2.12 2.12 2.12 2.12z" />
+            </svg>
+          </div>
+          <div class="btn-text">
+            <span class="subtext">Get it on</span>
+            <span class="store-name">Google Play</span>
+          </div>
+          <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+
+        <!-- Apple App Store -->
+        <a id="btn-appstore" class="store-button" href="https://apps.apple.com/in/app/dealup/id6800830848">
+          <div class="btn-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 0.92-2.87-.9.04-2 .6-2.63 1.34-.56.65-.98 1.7-0.85 2.73.99.08 1.95-.49 2.56-1.2" />
+            </svg>
+          </div>
+          <div class="btn-text">
+            <span class="subtext">Download on the</span>
+            <span class="store-name">App Store</span>
+          </div>
+          <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Redirect Indicator (if auto-redirecting) -->
+      <div id="redirect-status" class="redirect-status">
+        <div class="spinner"></div>
+        <span>Redirecting to your app store...</span>
+      </div>
+
+      <div class="footer">
+        <span>Available for Android and iOS</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Wire button URLs dynamically to CONFIG
+    document.getElementById('btn-playstore').href = CONFIG.androidUrl;
+    document.getElementById('btn-appstore').href = CONFIG.iosUrl;
+
+    // Show indicator if mobile is redirecting
+    const ua = navigator.userAgent || navigator.vendor || window.opera || '';
+    const isAndroid = /android/i.test(ua);
+    const isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+    if (isAndroid || isIOS) {
+      const statusEl = document.getElementById('redirect-status');
+      if (statusEl) statusEl.style.display = 'flex';
+    }
+  </script>
+</body>
+</html>
